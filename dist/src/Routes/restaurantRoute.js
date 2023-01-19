@@ -1,17 +1,7 @@
 import { Router } from "express";
-import restaurantFilter from "../utils/restaurantFilter.js";
+import restaurantController from '../controller/reataurantController.js';
 const router = Router();
-router.route('/').get((req, res) => {
-    const keyword = req.query.keyword;
-    const type = req.query.type;
-    const restaurantList = new restaurantFilter({ type, keyword }).restaurantSearch();
-    res.render('home', { restaurantList });
-});
-router.route('/:id').get((req, res) => {
-    const id = parseInt(req.params.id);
-    const result = new restaurantFilter({ id }).restaurantInfo();
-    console.log(result);
-    res.render('showpage', { result });
-});
+router.route('/').get(restaurantController.getRestaurants);
+router.route('/:id').get(restaurantController.getRestaurantInfo);
 export default router;
 //# sourceMappingURL=restaurantRoute.js.map

@@ -11,6 +11,7 @@ const port = 3000;
 app.engine('handlebars', engine());
 app.set('view engine', 'handlebars');
 // app.engine('handlebars',handlebars({ defaultLsyout: 'main' }));
+// 定義更明確的路徑 以利切換網址後錯誤
 app.use('/public', express.static('public'));
 app.use('/restaurant', restaurantRouter);
 app.listen(port, () => {

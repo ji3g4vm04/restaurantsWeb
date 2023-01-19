@@ -1,3 +1,3 @@
 # 餐廳清單
 
-![restaurantList](https://imgur.com/cXGTYKK)
+![restaurantList](https://i.imgur.com/cXGTYKK.png)

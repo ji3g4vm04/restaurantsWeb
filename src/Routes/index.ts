@@ -3,6 +3,6 @@ import restaurantRoute from './restaurantRoute.js';
 
 const router : Router = Router();
 // 所有路徑將由restaurant 開始
-router.use('/restaurant',restaurantRoute);
+router.use('/',restaurantRoute);
 
 export default router;

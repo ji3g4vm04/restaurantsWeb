@@ -30,7 +30,13 @@ npm i express express-handlebars
 npm start
 ```
 
-5. 結束
+5. 執行成功時終端機會出現以下內容
+
+```
+app is rinning on localhost:3000
+```
+
+6. 結束
 
 ```
 ctrl + c
@@ -43,7 +49,3 @@ ctrl + c
 - Express-Handlebars 6.0.6
 - typescript 4.7.4
 - types/express" 4.17.15
-
-```
-
-```

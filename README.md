@@ -30,10 +30,10 @@ npm i express express-handlebars
 npm start
 ```
 
-5. 進入指定網址
+5. 進入網址
 
 ```
-http://127.0.0.1:3000/restaurant
+http://127.0.0.1:3000
 ```
 
 6. 執行成功時終端機會出現以下內容

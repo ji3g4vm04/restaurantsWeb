@@ -24,9 +24,9 @@ const getRestaurants = async (req : Request, res : Response) => {
   res.render('home',{ restaurantList })
 }
 // 取得餐廳資料
-const getRestaurantInfo = (req : Request ,res : Response ) => {
-  const id : number = parseInt(req.params.id);
-  const result : restaurantResult = restaurantFilter.restaurantInfo(id);
+const getRestaurantInfo = async (req : Request ,res : Response ) => {
+  const id : string = req.params.id;
+  const result = await Restaurant.findById(id).lean();
   res.render('showpage',{ result })
 }
 

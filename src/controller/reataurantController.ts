@@ -1,12 +1,26 @@
 import { Request, Response } from "express";
 import restaurantFilter from '../utils/restaurantFilter.js';
 import { restaurantResult } from "../interface/restaurant.js";
+import Restaurant from "../models/restaurantModel.js";
 
-const getRestaurants = (req : Request, res : Response) => {
+interface FindObject {
+  name? : RegExp;
+  category? : RegExp;
+}
+
+const getRestaurants = async (req : Request, res : Response) => {
   const keyword : string = req.query.keyword as string;
   const type : string = req.query.type as string;
-  // 帶入關鍵字以及搜尋對象，回傳陣列
-  const restaurantList : any[] = new restaurantFilter({type, keyword }).restaurantSearch();
+  let findObject : FindObject = {};
+  //透過正則表達式過濾列表
+  const matchContent = new RegExp(keyword,'i');
+  if(type === 'name' && keyword){
+    findObject = { name : matchContent};
+  }else if(type === 'category' && keyword){
+    findObject = {category: matchContent }
+  }
+  // 取得mongodb的資料
+  const restaurantList = await Restaurant.find(findObject).lean();
   res.render('home',{ restaurantList })
 }
 // 取得餐廳資料

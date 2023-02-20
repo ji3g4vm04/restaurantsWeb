@@ -30,4 +30,17 @@ const getRestaurantInfo = async (req : Request ,res : Response ) => {
   res.render('showpage',{ result })
 }
 
-export default { getRestaurants, getRestaurantInfo };
+const editRender = async (req : Request ,res : Response ) => {
+  const id : string = req.params.id;
+  const result = await Restaurant.findById(id).lean();
+  res.render('edit',{ result });
+}
+
+const editRestaurantInfo = async (req : Request ,res : Response ) =>{
+  const id : string = req.params.id;
+  const updateContent = req.body;
+  const result = await Restaurant.findByIdAndUpdate(id,updateContent);
+  res.redirect(`/${id}`)
+}
+
+export default { getRestaurants, getRestaurantInfo, editRender, editRestaurantInfo };

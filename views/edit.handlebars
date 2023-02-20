@@ -1,0 +1,123 @@
+<div class="container">
+  <div class="form-body mt-3">
+    <div class="row">
+      <div class="form-holder">
+        <div class="form-content">
+          <div class="form-items">
+            <form
+              class="requires-validation"
+              action="/edit/{{result._id}}"
+              method="post"
+            >
+
+              <div class="col-md-12 mb-2">
+                <h4>餐廳名稱</h4>
+                <input
+                  class="form-control"
+                  type="text"
+                  name="name"
+                  placeholder="Restaurant Name"
+                  required
+                  value="{{result.name}}"
+                />
+              </div>
+              <div class="col-md-12 mb-2">
+                <h4>餐廳名稱(英文)</h4>
+                <input
+                  class="form-control"
+                  type="text"
+                  name="name_en"
+                  placeholder="Restaurant English Name"
+                  required
+                  value="{{result.name_en}}"
+                />
+              </div>
+              <div class="col-md-12 mb-2">
+                <h4>分類</h4>
+                <input
+                  class="form-control"
+                  type="text"
+                  name="category"
+                  placeholder="Category"
+                  required
+                  value="{{result.category}}"
+                />
+              </div>
+              <div class="col-md-12 mb-2">
+                <h4>圖片位置</h4>
+                <input
+                  class="form-control"
+                  type="text"
+                  name="image"
+                  placeholder="Image URL"
+                  required
+                  value="{{result.image}}"
+                />
+              </div>
+              <div class="col-md-12 mb-2">
+                <h4>地址</h4>
+                <input
+                  class="form-control"
+                  type="text"
+                  name="location"
+                  placeholder="Location"
+                  required
+                  value="{{result.location}}"
+                />
+              </div>
+              <div class="col-md-12 mb-2">
+                <h4>電話</h4>
+                <input
+                  class="form-control"
+                  type="text"
+                  name="phone"
+                  placeholder="Phone Number"
+                  required
+                  value="{{result.phone}}"
+                />
+              </div>
+              <div class="col-md-12 mb-2">
+                <h4>Google Map 座標</h4>
+                <input
+                  class="form-control"
+                  type="text"
+                  name="google_map"
+                  placeholder="Google Map Location"
+                  required
+                  value="{{result.google_map}}"
+                />
+              </div>
+              <div class="col-md-12 mb-2">
+                <h4>評分</h4>
+                <input
+                  class="form-control"
+                  type="text"
+                  name="rating"
+                  placeholder="Rating"
+                  required
+                  value="{{result.rating}}"
+                />
+              </div>
+              <div class="col-md-12 mb-2">
+                <h4>介紹</h4>
+                <textarea
+                  class="form-control"
+                  type="text"
+                  name="description"
+                  placeholder="description"
+                  required
+                >{{result.description}}
+                </textarea>
+              </div>
+              <div class="form-button mt-3">
+                <button id="submit" type="submit" class="btn btn-primary">
+                  Register
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

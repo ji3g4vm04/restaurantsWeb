@@ -1,4 +1,3 @@
-import restaurantFilter from '../utils/restaurantFilter.js';
 import Restaurant from "../models/restaurantModel.js";
 const getRestaurants = async (req, res) => {
     const keyword = req.query.keyword;
@@ -17,10 +16,21 @@ const getRestaurants = async (req, res) => {
     res.render('home', { restaurantList });
 };
 // 取得餐廳資料
-const getRestaurantInfo = (req, res) => {
-    const id = parseInt(req.params.id);
-    const result = restaurantFilter.restaurantInfo(id);
+const getRestaurantInfo = async (req, res) => {
+    const id = req.params.id;
+    const result = await Restaurant.findById(id).lean();
     res.render('showpage', { result });
 };
-export default { getRestaurants, getRestaurantInfo };
+const editRender = async (req, res) => {
+    const id = req.params.id;
+    const result = await Restaurant.findById(id).lean();
+    res.render('edit', { result });
+};
+const editRestaurantInfo = async (req, res) => {
+    const id = req.params.id;
+    const updateContent = req.body;
+    const result = await Restaurant.findByIdAndUpdate(id, updateContent);
+    res.redirect(`/${id}`);
+};
+export default { getRestaurants, getRestaurantInfo, editRender, editRestaurantInfo };
 //# sourceMappingURL=reataurantController.js.map

@@ -35,25 +35,48 @@
       <div class="col-md-10 col-12 mx-auto">
         <div class="row row-cols-sm-3">
           {{#each restaurantList}}
-            <a href="/{{_id}}" class="text-secondary">
-              <div class="card mb-3">
-                <img class="card-img-top" src="{{image}}" alt="{{name}}" />
-                <div class="card-body p-3">
-                  <h6 class="card-title mb-1">{{name}}</h6>
+            <div class="mb-3">
+              <a href="/{{_id}}" class="text-secondary">
+                <div class="card">
+                  <img class="card-img-top" src="{{image}}" alt="{{name}}" />
+                  <div class="card-body p-3">
+                    <h6 class="card-title mb-1">{{name}}</h6>
 
-                  <div class="restaurant-category mb-1">
-                    <i class="fas fa-utensils pr-2"></i>
-                    {{category}}
+                    <div class="restaurant-category mb-1">
+                      <i class="fas fa-utensils pr-2"></i>
+                      {{category}}
+                    </div>
+
+                    <span class="badge-pill badge-danger font-weight-normal">
+                      {{rating}}
+                      <i class="fas fa-star fa-xs"></i>
+                    </span>
+
                   </div>
-
-                  <span class="badge-pill badge-danger font-weight-normal">
-                    {{rating}}
-                    <i class="fas fa-star fa-xs"></i>
-                  </span>
-
                 </div>
-              </div>
-            </a>
+              </a>
+              <ul class="nav justify-content-end">
+                <li class="nav-item">
+                  <a
+                    class="nav-link active"
+                    aria-current="page"
+                    href="/edit/{{_id}}"
+                  >
+                    Edit
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">
+                    Detail
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">
+                    Delete
+                  </a>
+                </li>
+              </ul>
+            </div>
           {{/each}}
         </div>
       </div>

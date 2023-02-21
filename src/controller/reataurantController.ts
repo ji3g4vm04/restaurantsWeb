@@ -30,10 +30,23 @@ const getRestaurantInfo = async (req : Request ,res : Response ) => {
   res.render('showpage',{ result })
 }
 
+const createRender =  (req : Request ,res : Response ) => {
+  res.render('edit',{ title: '新增餐廳', create: true });
+}
+
+const createRestaurant = async (req : Request ,res : Response ) => {
+  const result = await Restaurant.create(req.body)
+  if(result){
+    res.status(200).json(result);
+  }else{
+    res.status(404)
+  }
+}
+
 const editRender = async (req : Request ,res : Response ) => {
   const id : string = req.params.id;
   const result = await Restaurant.findById(id).lean();
-  res.render('edit',{ result });
+  res.render('edit',{ result, create: false });
 }
 
 const editRestaurantInfo = async (req : Request ,res : Response ) =>{
@@ -43,7 +56,7 @@ const editRestaurantInfo = async (req : Request ,res : Response ) =>{
   res.redirect(`/${id}`)
 }
 
-const deleteRestaurant = async (req : Request ,res : Response ) =>{  
+const deleteRestaurant = async (req : Request ,res : Response ) =>{
   const id : any = req.params.id;
   const result = await Restaurant.findOneAndDelete(id);
   if(!result){
@@ -61,5 +74,7 @@ export default { getRestaurants,
                  getRestaurantInfo,
                  editRender,
                  editRestaurantInfo,
-                 deleteRestaurant
+                 deleteRestaurant,
+                 createRender,
+                 createRestaurant
                 };

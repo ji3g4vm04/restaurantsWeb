@@ -30,10 +30,13 @@ const restaurantSchema = new Schema({
     },
     rating: {
         type: Number,
-        default: 4.1
+        default: 4.1,
+        max: [5.0, '評分上限為 5.0'],
+        min: [1.0, '評分下限為 1.0']
     },
     description: {
-        type: String
+        type: String,
+        maxlength: 100
     }
 });
 const Restaurant = model('restaurant', restaurantSchema);

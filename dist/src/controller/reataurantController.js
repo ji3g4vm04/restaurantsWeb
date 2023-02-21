@@ -21,10 +21,22 @@ const getRestaurantInfo = async (req, res) => {
     const result = await Restaurant.findById(id).lean();
     res.render('showpage', { result });
 };
+const createRender = (req, res) => {
+    res.render('edit', { title: '新增餐廳', create: true });
+};
+const createRestaurant = async (req, res) => {
+    const result = await Restaurant.create(req.body);
+    if (result) {
+        res.status(200).json(result);
+    }
+    else {
+        res.status(404);
+    }
+};
 const editRender = async (req, res) => {
     const id = req.params.id;
     const result = await Restaurant.findById(id).lean();
-    res.render('edit', { result });
+    res.render('edit', { result, create: false });
 };
 const editRestaurantInfo = async (req, res) => {
     const id = req.params.id;
@@ -50,6 +62,8 @@ export default { getRestaurants,
     getRestaurantInfo,
     editRender,
     editRestaurantInfo,
-    deleteRestaurant
+    deleteRestaurant,
+    createRender,
+    createRestaurant
 };
 //# sourceMappingURL=reataurantController.js.map

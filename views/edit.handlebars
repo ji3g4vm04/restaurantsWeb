@@ -1,4 +1,13 @@
 <div class="container">
+  {{#if title}}
+    <h2 class="mt-3 mb-3">
+      {{title}}
+    </h2>
+    {{else}}
+    <h2 class="mt-3 mb-3">
+      當前編輯資料：{{result._id}}
+    </h2>
+  {{/if}}
   <div class="form-body mt-3">
     <div class="row">
       <div class="form-holder">
@@ -6,7 +15,11 @@
           <div class="form-items">
             <form
               class="requires-validation"
-              action="/edit/{{result._id}}"
+              {{#if create}}
+                action="/create"
+              {{else}}
+                action="/edit/{{result._id}}"
+              {{/if}}
               method="post"
             >
 

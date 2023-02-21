@@ -30,7 +30,7 @@
 </div>
 {{! restaurant list }}
 {{#if restaurantList.length}}
-  <div class="container mt-5">
+  <div class="container mt-5 restaurants">
     <div class="row">
       <div class="col-md-10 col-12 mx-auto">
         <div class="row row-cols-sm-3">
@@ -71,7 +71,7 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">
+                  <a class="nav-link" href="#" id="delete" data-id="{{_id}}">
                     Delete
                   </a>
                 </li>

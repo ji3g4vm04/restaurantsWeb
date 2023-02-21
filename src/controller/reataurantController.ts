@@ -39,8 +39,27 @@ const editRender = async (req : Request ,res : Response ) => {
 const editRestaurantInfo = async (req : Request ,res : Response ) =>{
   const id : string = req.params.id;
   const updateContent = req.body;
-  const result = await Restaurant.findByIdAndUpdate(id,updateContent);
+  await Restaurant.findByIdAndUpdate(id,updateContent);
   res.redirect(`/${id}`)
 }
 
-export default { getRestaurants, getRestaurantInfo, editRender, editRestaurantInfo };
+const deleteRestaurant = async (req : Request ,res : Response ) =>{  
+  const id : any = req.params.id;
+  const result = await Restaurant.findOneAndDelete(id);
+  if(!result){
+    res.status(404)
+  }else{
+    res.status(204)
+    .json({
+      status: 'success',
+      message: `Deleted ${id}`
+    })
+  }
+}
+
+export default { getRestaurants,
+                 getRestaurantInfo,
+                 editRender,
+                 editRestaurantInfo,
+                 deleteRestaurant
+                };

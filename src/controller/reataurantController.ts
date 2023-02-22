@@ -35,6 +35,7 @@ const createRender =  (req : Request ,res : Response ) => {
 }
 
 const createRestaurant = async (req : Request ,res : Response ) => {
+  console.log(req.body);
   const result = await Restaurant.create(req.body)
   if(result){
     res.status(200).json(result);

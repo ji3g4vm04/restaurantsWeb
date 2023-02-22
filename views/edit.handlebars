@@ -14,7 +14,7 @@
         <div class="form-content">
           <div class="form-items">
             <form
-              class="requires-validation"
+              class="requires-validation form"
               {{#if create}}
                 action="/create"
               {{else}}
@@ -134,3 +134,6 @@
     </div>
   </div>
 </div>
+{{#if create}}
+<script src="/public/javascript/create.js"></script>
+{{/if}}

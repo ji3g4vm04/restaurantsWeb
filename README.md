@@ -1,6 +1,6 @@
 # 餐廳清單 2.0
 
-![restaurantList](https://github.com/ji3g4vm04/restaurantsWeb/public/pic.png)
+![restaurantList](https://github.com/ji3g4vm04/restaurantsWeb/blob/main/public/pic.png?raw=true)
 
 ### 功能
 

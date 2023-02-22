@@ -1,12 +1,14 @@
-# 餐廳清單
+# 餐廳清單 2.0
 
-![restaurantList](https://i.imgur.com/cXGTYKK.png)
+![restaurantList](https://imgur.com/a/HZhN1Wp)
 
 ### 功能
 
 - 檢視所有餐廳
 - 指定餐廳名或餐廳類型後進行搜尋
 - 檢視指定餐廳的資料
+- 新增、編輯餐廳資料
+- 刪除餐廳資料
 
 ### 安裝
 

@@ -37,7 +37,6 @@ const restaurantSchema = new Schema({
   },
   description:{
     type: String,
-    maxlength: 100
   }
 })
 

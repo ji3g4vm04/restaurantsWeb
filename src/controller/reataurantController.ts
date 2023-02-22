@@ -35,7 +35,6 @@ const createRender =  (req : Request ,res : Response ) => {
 }
 
 const createRestaurant = async (req : Request ,res : Response ) => {
-  console.log(req.body);
   const result = await Restaurant.create(req.body)
   if(result){
     res.status(200).json(result);
@@ -59,7 +58,6 @@ const editRestaurantInfo = async (req : Request ,res : Response ) =>{
 
 const deleteRestaurant = async (req : Request ,res : Response ) =>{
   const id : any = req.params.id;
-  console.log(id)
   const result = await Restaurant.findByIdAndDelete(id);
   if(!result){
     res.status(404)

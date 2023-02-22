@@ -7,7 +7,7 @@ dotenv.config()
 const port : number = parseInt(process.env.PORT) || 3000 ; 
 const password = process.env.DATABASE_PASSWORD;
 const DB = process.env.DATABASE.replace('<password>',password);
-
+// 連接mongoDB
 mongoose.connect(DB)
         .then(() => {
           console.log('connect success!')

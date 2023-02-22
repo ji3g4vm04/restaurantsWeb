@@ -1,6 +1,6 @@
 # 餐廳清單 2.0
 
-![restaurantList](https://imgur.com/FlxglKB)
+![restaurantList](/public/pic.png)
 
 ### 功能
 

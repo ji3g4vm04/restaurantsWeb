@@ -59,7 +59,8 @@ const editRestaurantInfo = async (req : Request ,res : Response ) =>{
 
 const deleteRestaurant = async (req : Request ,res : Response ) =>{
   const id : any = req.params.id;
-  const result = await Restaurant.findOneAndDelete(id);
+  console.log(id)
+  const result = await Restaurant.findByIdAndDelete(id);
   if(!result){
     res.status(404)
   }else{

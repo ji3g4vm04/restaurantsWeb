@@ -25,6 +25,7 @@ const createRender = (req, res) => {
     res.render('edit', { title: '新增餐廳', create: true });
 };
 const createRestaurant = async (req, res) => {
+    console.log(req.body);
     const result = await Restaurant.create(req.body);
     if (result) {
         res.status(200).json(result);
@@ -46,7 +47,8 @@ const editRestaurantInfo = async (req, res) => {
 };
 const deleteRestaurant = async (req, res) => {
     const id = req.params.id;
-    const result = await Restaurant.findOneAndDelete(id);
+    console.log(id);
+    const result = await Restaurant.findByIdAndDelete(id);
     if (!result) {
         res.status(404);
     }

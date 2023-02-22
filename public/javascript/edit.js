@@ -1,4 +1,5 @@
 const form = document.querySelector("form");
+const id = location.href.split("/").pop();
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -24,8 +25,9 @@ form.addEventListener("submit", (e) => {
     description,
     image,
   };
-
-  fetch("/create", {
+  console.log(location);
+  const url = `/edit/${id}`;
+  fetch(url, {
     method: "POST",
     body: JSON.stringify(data),
     headers: new Headers({
@@ -39,7 +41,7 @@ form.addEventListener("submit", (e) => {
       console.error("Error", error);
     })
     .then((res) => {
-      alert("新增成功");
+      alert("編輯成功");
       location.href = "/";
     });
 });
